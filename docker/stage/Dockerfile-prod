@@ -1,0 +1,9 @@
+
+FROM msr-shared:1
+FROM node:12
+
+ADD app /app/
+RUN cd app; npm install seneca lodash seneca-entity seneca-jsonfile-store seneca-zipkin-tracer seneca-statsd bluebird
+#RUN npm install seneca lodash wreck seneca-zipkin-tracer seneca-statsd circular-json bluebird
+
+CMD ["node", "/app/srv/store-prod.js"]

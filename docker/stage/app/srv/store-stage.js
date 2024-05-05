@@ -1,0 +1,10 @@
+let Seneca = require('seneca')
+
+Seneca({tag: 'store', timeout: 5000})
+//  .use('zipkin-tracer', {host: 'zipkin', sampling: 1})
+//  .use('statsd', {host: 'stats'})
+  .use('entity')
+  .use('jsonfile-store', {folder: '/opt/data'})
+  .use('../store.js')
+  .listen(8045)
+  .client({pin:'role:reason', host:'reason', port:8035})

@@ -1,0 +1,14 @@
+sudo: required
+language: node_js
+dist: trusty
+
+services:
+  - elasticsearch
+
+before_script:
+  - sleep 33
+
+node_js:
+  - '4'
+  - '6'
+  - '8'
